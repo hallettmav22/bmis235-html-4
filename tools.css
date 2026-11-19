@@ -1,9 +1,9 @@
 /* =====================================================================
-   tools.css  ·  STUDY PLANNER + LEARN CSS
+   tools.css  ·  NOT THE NIGHT BEFORE (planner + Learn CSS)
    Author: Maverick Hallett (mhallett) · BMIS 235 HTML-4
-   Extra styles for planner.html and learn.html. The brand itself
-   (font, cream background, forest green, rust) still comes from
-   styles.css, which every page links to first.
+   Extra styles for the planner (index.html) and learn.html. The brand
+   itself (font, navy, gold, the menu) comes from styles.css, which
+   every page links to first.
    ===================================================================== */
 
 /* ---------- one rule per class color ----------
@@ -15,7 +15,7 @@
 .c-phil  { background: #C2185B; }
 .c-stats { background: #4E9A3A; }
 .c-musc  { background: #B8860B; }
-.c-gscg  { background: #2F4F3E; }
+.c-gscg  { background: #0F766E; }
 
 /* ---------- shared layout ---------- */
 .tool-intro { text-align: center; }
@@ -30,7 +30,7 @@
 }
 
 .tool code {
-    background: #E8DDCB;
+    background: #E6E2D8;
     padding: 1px 5px;
     border-radius: 4px;
     font-size: 0.95em;
@@ -45,7 +45,7 @@
 }
 
 .tool-card h2 { margin-top: 0; }
-.tool-card h3 { margin: 0 0 8px 0; color: #2F4F3E; }
+.tool-card h3 { margin: 0 0 8px 0; color: #1F2A44; }
 
 .tool-card p, .tool-card li, .tool-panel > p {
     max-width: none;
@@ -56,11 +56,11 @@
 
 .tool-panel > p { max-width: 760px; margin: 10px auto; }
 
-.tool-lesson { border-left: 6px solid #C8553D; }
+.tool-lesson { border-left: 6px solid #C99A2E; }
 
 .tool-code {
-    background: #2F4F3E;
-    color: #F4EDE1;
+    background: #1F2A44;
+    color: #F5F3EE;
     padding: 12px 14px;
     border-radius: 8px;
     font-size: 15px;
@@ -74,26 +74,26 @@
     padding: 9px 16px;
     border: none;
     border-radius: 8px;
-    background: #C8553D;
+    background: #C99A2E;
     color: #FFFFFF;
     cursor: pointer;
     margin: 6px 6px 6px 0;
 }
 
-.tool-btn:hover { background: #A9442F; }
+.tool-btn:hover { background: #A97F22; }
 
 .tool-ghost {
     background: transparent;
-    color: #2F4F3E;
-    border: 2px solid #2F4F3E;
+    color: #1F2A44;
+    border: 2px solid #1F2A44;
 }
 
-.tool-ghost:hover { background: #E8DDCB; }
+.tool-ghost:hover { background: #E6E2D8; }
 
 .tool-link {
     background: none;
     border: none;
-    color: #C8553D;
+    color: #C99A2E;
     font-family: Georgia, serif;
     font-size: 15px;
     text-decoration: underline;
@@ -108,7 +108,7 @@
 
 .tool-how {
     margin-top: 12px;
-    background: #F4EDE1;
+    background: #F5F3EE;
     border-radius: 8px;
     padding: 8px 12px;
 }
@@ -116,7 +116,7 @@
 .tool-how summary, .pl-summary {
     cursor: pointer;
     font-weight: bold;
-    color: #2F4F3E;
+    color: #1F2A44;
 }
 
 .tool-how p { font-size: 16px; }
@@ -144,14 +144,14 @@
     font-family: Georgia, serif;
     font-size: 16px;
     padding: 10px 14px;
-    border: 2px solid #2F4F3E;
+    border: 2px solid #1F2A44;
     border-radius: 8px;
-    background: #F4EDE1;
-    color: #2F4F3E;
+    background: #F5F3EE;
+    color: #1F2A44;
     cursor: pointer;
 }
 
-.tool-step.active { background: #2F4F3E; color: #F4EDE1; }
+.tool-step.active { background: #1F2A44; color: #F5F3EE; }
 .tool-step.done::after { content: " ✓"; }
 
 /* =====================================================================
@@ -221,13 +221,13 @@
     font-weight: bold;
 }
 
-.pl-today .pl-dayhead { color: #C8553D; }
-.pl-today .pl-daybody { background-color: #FFF8EC; }
+.pl-today .pl-dayhead { color: #C99A2E; }
+.pl-today .pl-daybody { background-color: #FBF6E9; }
 
 .pl-daybody {
     position: relative;
-    border-left: 1px solid #E3D8C5;
-    background-image: repeating-linear-gradient(to bottom, #EDE4D3 0, #EDE4D3 1px, transparent 1px, transparent 40px);
+    border-left: 1px solid #DDD8CC;
+    background-image: repeating-linear-gradient(to bottom, #E7E3DA 0, #E7E3DA 1px, transparent 1px, transparent 40px);
 }
 
 .pl-block {
@@ -275,7 +275,7 @@
     gap: 10px;
     align-items: flex-start;
     padding: 8px 0;
-    border-bottom: 1px solid #EFE6D6;
+    border-bottom: 1px solid #ECE8DF;
     font-size: 16px;
 }
 
@@ -296,15 +296,15 @@
 .pl-done, .pl-x, .pl-mini {
     font-family: Georgia, serif;
     font-size: 13px;
-    border: 1px solid #2F4F3E;
+    border: 1px solid #1F2A44;
     background: #FFFFFF;
-    color: #2F4F3E;
+    color: #1F2A44;
     border-radius: 6px;
     padding: 4px 8px;
     cursor: pointer;
 }
 
-.pl-done:hover, .pl-x:hover, .pl-mini:hover { background: #E8DDCB; }
+.pl-done:hover, .pl-x:hover, .pl-mini:hover { background: #E6E2D8; }
 
 .pl-warn {
     margin-top: 10px;
@@ -324,10 +324,10 @@
     box-sizing: border-box;
     font-size: 16px;
     padding: 7px;
-    border: 2px solid #2F4F3E;
+    border: 2px solid #1F2A44;
     border-radius: 6px;
     font-family: Georgia, serif;
-    background: #FBF7F0;
+    background: #FAF9F6;
 }
 
 .pl-form .tool-btn { margin-top: 14px; }
@@ -337,7 +337,7 @@
     gap: 10px;
     align-items: flex-start;
     padding: 10px 0;
-    border-bottom: 1px solid #EFE6D6;
+    border-bottom: 1px solid #ECE8DF;
 }
 
 .pl-item-main { flex: 1; }
@@ -345,7 +345,7 @@
 .pl-tag {
     display: inline-block;
     font-size: 12px;
-    background: #E8DDCB;
+    background: #E6E2D8;
     border-radius: 10px;
     padding: 1px 8px;
 }
@@ -354,7 +354,7 @@
 
 .pl-bar {
     height: 6px;
-    background: #EFE6D6;
+    background: #ECE8DF;
     border-radius: 3px;
     margin-top: 5px;
     overflow: hidden;
@@ -372,7 +372,7 @@
 
 .pl-settings input { font-size: 15px; padding: 4px; margin-left: 4px; width: auto; }
 
-.pl-edit-class { padding: 10px 0; border-bottom: 1px solid #EFE6D6; }
+.pl-edit-class { padding: 10px 0; border-bottom: 1px solid #ECE8DF; }
 .pl-edit-head { display: flex; gap: 8px; align-items: center; }
 .pl-edit-head .pl-dot { margin-top: 0; }
 
@@ -404,7 +404,7 @@
 .task-box {
     flex: 0 0 20px;
     height: 20px;
-    border: 2px solid #2F4F3E;
+    border: 2px solid #1F2A44;
     border-radius: 5px;
     margin-top: 3px;
     box-sizing: border-box;
@@ -435,7 +435,7 @@
     font-size: 14px;
     line-height: 1.45;
     padding: 10px;
-    border: 2px solid #2F4F3E;
+    border: 2px solid #1F2A44;
     border-radius: 8px;
     background: #1E2A24;
     color: #E9F0E4;
@@ -449,7 +449,7 @@
     transition: color 0.3s;
 }
 
-.pg-flow.on { color: #C8553D; font-weight: bold; }
+.pg-flow.on { color: #C99A2E; font-weight: bold; }
 
 .pg-pages {
     display: grid;
@@ -459,14 +459,14 @@
 }
 
 .mini-page {
-    border: 2px solid #B9AE9C;
+    border: 2px solid #B8B3A7;
     border-radius: 8px;
     overflow: hidden;
     background: #FFFFFF;
     transition: box-shadow 0.3s;
 }
 
-.mini-page.flash { box-shadow: 0 0 0 4px #C8553D; }
+.mini-page.flash { box-shadow: 0 0 0 4px #C99A2E; }
 
 .mini-tab {
     background: #DDD5C8;
@@ -480,7 +480,7 @@
 .mini-file { color: #6B6B6B; float: right; }
 
 .mini-head {
-    background: #2F4F3E;
+    background: #1F2A44;
     color: #C9D8CC;
     font-family: "Courier New", monospace;
     font-size: 12px;
@@ -530,14 +530,14 @@
     font-size: 16px;
     padding: 10px 12px;
     margin: 6px 0;
-    border: 2px solid #D8CBB5;
+    border: 2px solid #D6D1C4;
     border-radius: 8px;
-    background: #FBF7F0;
-    color: #2F4F3E;
+    background: #FAF9F6;
+    color: #1F2A44;
     cursor: pointer;
 }
 
-.quiz-opt:hover:not(:disabled) { border-color: #2F4F3E; }
+.quiz-opt:hover:not(:disabled) { border-color: #1F2A44; }
 .quiz-opt.right { border-color: #2E7D32; background: #E3F1E4; }
 .quiz-opt.wrong { border-color: #B3261E; background: #FBE4E2; }
 .quiz-opt:disabled { cursor: default; }
@@ -546,7 +546,7 @@
     margin: 12px 0 6px 0;
     padding: 10px 12px;
     border-radius: 8px;
-    background: #F4EDE1;
+    background: #F5F3EE;
     font-size: 16px;
     line-height: 1.5;
 }
