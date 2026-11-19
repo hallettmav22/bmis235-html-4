@@ -19,7 +19,7 @@
     });
   }
 
-  var KEY = 'goombaLearnCSS-v1';
+  var KEY = 'nnbLearnCSS-v1';
   var saved = {};
   try { saved = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) {}
   function save(obj) {
