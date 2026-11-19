@@ -39,7 +39,7 @@
   var PX_PER_HOUR = 40;
 
   /* ---------- saved state ---------- */
-  var KEY = 'goombaPlanner-v1';
+  var KEY = 'nnbPlanner-v1';
   var state;
   function fresh() {
     return {
