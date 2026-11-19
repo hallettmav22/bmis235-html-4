@@ -164,6 +164,7 @@
 
     instances().forEach(function (a) {
       if (a.left <= 0) return;
+      if (a.due <= new Date()) return;   // past due: shown in the list, never planned in the past
       // don't start too far ahead: about 2 days per hour of work, between 3 and 10 days
       var windowDays = Math.min(10, Math.max(3, Math.ceil(a.left / 60) * 2 + 1));
       var first = addDays(startOfDay(a.due), -windowDays);
@@ -214,12 +215,15 @@
             if (!best || score > best.score) best = { g: g, score: score, why: why };
           });
           var st = best.g.start;
-          (taken[key] = taken[key] || []).push({ start: st, end: st + len });
+          (taken[key] = taken[key] || []).push({ start: st, end: st + len + BUFFER }); // 10-min break after
           used[key] = (used[key] || 0) + len;
           sessions.push({ a: a, key: key, start: st, end: st + len, why: best.why });
           placed = true;
         }
-        if (!placed) problems.push({ a: a, min: len });
+        if (!placed) {
+          var p = problems.filter(function (x) { return x.a.id === a.id; })[0];
+          if (p) p.min += len; else problems.push({ a: a, min: len });
+        }
       });
     });
     return { sessions: sessions, problems: problems };
@@ -302,8 +306,8 @@
     if (plan.problems.length) {
       html += '<div class="pl-warn"><b>Heads up:</b> ';
       html += plan.problems.map(function (p) {
-        return dur(p.min) + ' of "' + esc(p.a.name) + '" didn\'t fit before it\'s due';
-      }).join('; ') + '. Start it now or raise your max hours per day.</div>';
+        return dur(p.min) + ' of "' + esc(p.a.name) + '" doesn\'t fit before it\'s due';
+      }).join('; ') + '. Start on it now, or raise "Max hours of work a day" under My week.</div>';
     }
     $('pl-upnext').innerHTML = html;
     $('pl-upnext').querySelectorAll('.pl-done').forEach(function (b) {
@@ -327,7 +331,7 @@
         '<b>' + esc(a.name) + '</b> <span class="pl-tag">' + esc(classById(a.cls).name) + '</span>' +
         (a.weekly ? ' <span class="pl-tag">weekly</span>' : '') +
         '<div class="pl-why">Due ' + prettyDate(a.due) + ' ' + fmt(a.dueMin) + ' · ' + dur(a.doneMin) + (a.doneMin ? '' : '0m') +
-        ' of ' + dur(total) + ' done' + (late ? ' · <span class="pl-late">past due</span>' : '') + '</div>' +
+        ' of ' + dur(total) + ' done' + (a.left === 0 ? ' · <span class="pl-fin">finished ✓</span>' : late ? ' · <span class="pl-late">past due</span>' : '') + '</div>' +
         '<div class="pl-bar"><span style="width:' + pct + '%"></span></div></div>' +
         '<button type="button" class="pl-x" data-base="' + esc(a.base) + '" aria-label="Delete ' + esc(a.name) + '">✕</button></div>';
     });

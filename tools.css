@@ -350,6 +350,8 @@
 }
 
 .pl-late { color: #B3261E; font-weight: bold; }
+.pl-fin { color: #2E7D32; font-weight: bold; }
+.pl-swipe { display: none; font-size: 13px; color: #6B7280; text-align: center; }
 
 .pl-bar {
     height: 6px;
@@ -489,6 +491,8 @@
 .mini-headline { padding-left: 12px; }
 
 .mini-link {
+    display: block;
+    resize: none;
     width: calc(100% - 12px);
     margin-left: 12px;
     box-sizing: border-box;
@@ -567,6 +571,7 @@
 @media (max-width: 760px) {
     .pl-two, .pg-layout, .pg-pages { grid-template-columns: 1fr; }
     .tool-step { font-size: 14px; padding: 8px 10px; }
+    .pl-swipe { display: block; }
 }
 
 /* keep hidden things hidden even when a rule above sets display */

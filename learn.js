@@ -19,7 +19,7 @@
     });
   }
 
-  var KEY = 'nnbLearnCSS-v2';
+  var KEY = 'nnbLearnCSS-v3';
   var saved = {};
   try { saved = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) {}
   function save(obj) {
@@ -80,12 +80,12 @@
      ================================================================= */
   var STARTER_CSS =
     'body {\n' +
-    '  background: #F4EDE1;\n' +
+    '  background: #F5F3EE;\n' +
     '  font-family: Georgia, serif;\n' +
-    '  color: #2F4F3E;\n' +
+    '  color: #1F2A44;\n' +
     '}\n\n' +
     'h4 {\n' +
-    '  color: #C8553D;\n' +
+    '  color: #A97F22;\n' +
     '  margin: 0 0 6px 0;\n' +
     '}\n\n' +
     '.block {\n' +
@@ -125,7 +125,7 @@
         '</span> <span class="mini-file">' + esc(p.file) + '</span></div>' +
         '<div class="mini-head"><div class="mini-headtag">&lt;head&gt;</div>' +
         '<div class="mini-headline">&lt;title&gt;' + esc(p.title) + '&lt;/title&gt;</div>' +
-        '<input class="mini-link" data-i="' + i + '" type="text" spellcheck="false" autocomplete="off" aria-label="Link line for ' + esc(p.file) + '">' +
+        '<textarea class="mini-link" data-i="' + i + '" rows="2" spellcheck="false" autocomplete="off" aria-label="Link line for ' + esc(p.file) + '"></textarea>' +
         '<div class="mini-status" id="mini-status-' + i + '"></div>' +
         '<div class="mini-headtag">&lt;/head&gt;</div></div>' +
         '<div class="mini-body"><h4>' + esc(p.title) + '</h4>';
@@ -137,6 +137,7 @@
     $('pg-pages').innerHTML = html;
     document.querySelectorAll('.mini-link').forEach(function (inp) {
       inp.value = play.links[Number(inp.getAttribute('data-i'))];
+      inp.addEventListener('keydown', function (e) { if (e.key === 'Enter') e.preventDefault(); });
       inp.addEventListener('input', function () {
         play.links[Number(inp.getAttribute('data-i'))] = inp.value;
         update();
@@ -157,7 +158,7 @@
     }
     if (href[1] !== 'planner.css') {
       if (href[1].toLowerCase() === 'planner.css') return 'Capital letters don\'t match: the file is planner.css.';
-      return 'href="' + href[1] + '" → 404 Not Found. The file is planner.css.';
+      return 'href="' + href[1] + '" → 404 Not Found. No file has that name.';
     }
     if (!/>\s*$/.test(t)) return 'The tag isn\'t closed with >.';
     return '';
@@ -210,7 +211,7 @@
   }
 
   /* ---------- tasks, checked by reading what the browser drew ---------- */
-  var STARTER_BG = 'rgb(244, 237, 225)';
+  var STARTER_BG = 'rgb(245, 243, 238)';
   function bodies() { return Array.prototype.slice.call(document.querySelectorAll('.mini-body')); }
   function cs(el, prop) { return getComputedStyle(el)[prop]; }
 
