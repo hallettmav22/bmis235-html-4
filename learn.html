@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<!--
+  Author: Maverick Hallett
+  GU username: mhallett
+  Course: BMIS 235 - HTML-4 (Path 3: Full build)
+  Page: Learn CSS, a learning tool for one stylesheet styling every page, and the cascade
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Maverick Hallett">
+<title>Goomba Grails | Learn CSS</title>
+
+<!-- the brand stylesheet every page shares -->
+<link rel="stylesheet" href="styles.css">
+<!-- styles for the planner and Learn CSS pages -->
+<link rel="stylesheet" href="tools.css">
+<!-- the playground's mini stylesheet gets written into this tag by learn.js -->
+<style id="mini-css"></style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html"><img src="img/home.png" alt="Home"></a>
+    <a href="grails.html"><img src="img/grails.png" alt="Grails"></a>
+    <a href="thehunt.html"><img src="img/thehunt.png" alt="The Hunt"></a>
+    <a href="shop.html"><img src="img/shop.png" alt="Shop"></a>
+    <a href="planner.html"><img src="img/planner.png" alt="Planner"></a>
+    <a href="learn.html"><img src="img/learn.png" alt="Learn CSS"></a>
+</nav>
+
+<h1>Learn CSS: One Stylesheet, Every Day</h1>
+<p class="tool-intro">My study planner has a page for every day of the week, and they all
+look the same because they share <strong>one stylesheet</strong>. This tool teaches how that
+works: the <code>&lt;head&gt;</code>, the <code>&lt;link&gt;</code> line, and the cascade
+(which rule wins). Go in order: learn it, try it, get quizzed.</p>
+
+<main class="tool">
+
+  <div class="tool-steps" role="tablist">
+    <button class="tool-step" data-go="learn" role="tab">1 · Learn</button>
+    <button class="tool-step" data-go="play" role="tab">2 · Try it</button>
+    <button class="tool-step" data-go="quiz" role="tab">3 · Quiz</button>
+    <button class="tool-step" data-go="watch" role="tab">4 · Watch out</button>
+  </div>
+
+  <!-- ============ 1. LEARN ============ -->
+  <section class="tool-panel" id="learn">
+    <h2>How one file styles every page</h2>
+
+    <div class="tool-card tool-lesson">
+      <h3>Head vs body</h3>
+      <p>Every page has two parts. The <code>&lt;body&gt;</code> holds everything you can see.
+      The <code>&lt;head&gt;</code> holds information <em>about</em> the page that you don't see on it:
+      the <code>&lt;title&gt;</code> (the words on the browser tab) and the line that loads the stylesheet.</p>
+      <pre class="tool-code">&lt;head&gt;
+  &lt;title&gt;Monday&lt;/title&gt;                         ← shows on the tab
+  &lt;link rel="stylesheet" href="planner.css"&gt;   ← loads the styles
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h4&gt;Monday&lt;/h4&gt;                              ← shows on the page
+&lt;/body&gt;</pre>
+    </div>
+
+    <div class="tool-card tool-lesson">
+      <h3>The link line</h3>
+      <p><code>&lt;link rel="stylesheet" href="planner.css"&gt;</code> tells the browser "go get
+      planner.css and use its rules on this page." <code>rel="stylesheet"</code> says what kind of file
+      it is, and <code>href</code> is the path to it. The path has to match the file name exactly,
+      or the page loads with no styles and no error message.</p>
+      <p>Put that same line in the head of all four pages and they all use the same rules.
+      Change a rule once in planner.css, and all four pages change.</p>
+    </div>
+
+    <div class="tool-card tool-lesson">
+      <h3>Rules and selectors</h3>
+      <pre class="tool-code">.acct { background: #D9822B; }
+ ↑        ↑            ↑
+ selector property     value</pre>
+      <ul>
+        <li><code>h4</code> picks every <code>&lt;h4&gt;</code> tag.</li>
+        <li><code>.acct</code>, with a dot, picks every tag with <code>class="acct"</code>. In the HTML you leave the dot off.</li>
+        <li><code>#today</code>, with a #, picks the one tag with <code>id="today"</code>.</li>
+      </ul>
+    </div>
+
+    <div class="tool-card tool-lesson">
+      <h3>The cascade: which rule wins</h3>
+      <p>When two rules set the same thing on the same tag:</p>
+      <ol>
+        <li><strong>The more specific selector wins.</strong> An id beats a class, and a class beats a plain tag name, no matter which rule comes first.</li>
+        <li><strong>If they're equally specific, the one that comes later wins.</strong> Two <code>.phil</code> rules? The lower one in the file wins.</li>
+      </ol>
+      <p>A misspelled property or value, like <code>backgroud</code>, is skipped without any
+      error. The rest of the rules still work.</p>
+    </div>
+
+    <details class="tool-card tool-listen">
+      <summary>Rather listen? Get a NotebookLM prompt</summary>
+      <label for="listen-topic">Pick a topic:</label>
+      <select id="listen-topic">
+        <option value="the difference between the head and the body of an HTML page">Head vs body</option>
+        <option value="how one link tag lets a single stylesheet style many pages">One stylesheet, many pages</option>
+        <option value="the CSS cascade: specificity and source order">The cascade</option>
+        <option value="CSS selectors: tag names, .classes and #ids">Selectors</option>
+      </select>
+      <textarea id="listen-out" rows="6" readonly></textarea>
+      <button type="button" class="tool-btn" id="listen-copy">Copy prompt</button>
+      <span class="tool-small" id="listen-msg"></span>
+    </details>
+
+    <button type="button" class="tool-btn tool-next" data-go="play">Next: Try it →</button>
+  </section>
+
+  <!-- ============ 2. TRY IT ============ -->
+  <section class="tool-panel" id="play" hidden>
+    <h2>Four pages, one stylesheet</h2>
+    <p>These are four tiny pages from my planner. Each one has its own <code>&lt;head&gt;</code>.
+    Edit <code>planner.css</code> below and watch every linked page change at once.</p>
+
+    <div class="pg-tasks tool-card">
+      <h3>Your tasks <span class="tool-small" id="pg-score"></span></h3>
+      <ol id="pg-tasks"></ol>
+    </div>
+
+    <div class="pg-layout">
+      <div class="pg-editor">
+        <div class="tool-label">planner.css</div>
+        <textarea id="pg-css" rows="22" spellcheck="false" autocomplete="off" aria-label="planner.css"></textarea>
+        <button type="button" class="tool-btn tool-ghost" id="pg-reset">Reset everything</button>
+        <div class="pg-flow" id="pg-flow" aria-hidden="true">planner.css → every page with the link line</div>
+      </div>
+      <div class="pg-pages" id="pg-pages"></div>
+    </div>
+
+    <button type="button" class="tool-btn tool-next" data-go="quiz">Next: Quiz →</button>
+  </section>
+
+  <!-- ============ 3. QUIZ ============ -->
+  <section class="tool-panel" id="quiz" hidden>
+    <h2>Quick check, one at a time</h2>
+    <div class="quiz-box tool-card" id="quiz-box"></div>
+    <button type="button" class="tool-btn tool-next" data-go="watch">Next: Watch out →</button>
+  </section>
+
+  <!-- ============ 4. WATCH OUT ============ -->
+  <section class="tool-panel" id="watch" hidden>
+    <h2>Watch out: when your styles don't show up</h2>
+    <ul class="watch-list">
+      <li><label><input type="checkbox"> The <code>&lt;link&gt;</code> line is inside <code>&lt;head&gt;</code> on <strong>every</strong> page.</label></li>
+      <li><label><input type="checkbox"> The <code>href</code> matches the file name exactly: <code>styles.css</code>, not <code>style.css</code>.</label></li>
+      <li><label><input type="checkbox"> It says <code>rel="stylesheet"</code>.</label></li>
+      <li><label><input type="checkbox"> Classes have a dot in CSS (<code>.acct</code>) but not in HTML (<code>class="acct"</code>).</label></li>
+      <li><label><input type="checkbox"> No later rule is overriding mine. Search the file for the same selector.</label></li>
+      <li><label><input type="checkbox"> No more-specific rule (an id or class) is beating my tag rule.</label></li>
+      <li><label><input type="checkbox"> Property names are spelled right. Typos fail silently.</label></li>
+      <li><label><input type="checkbox"> Every rule has its <code>{ }</code> and every line ends with <code>;</code>.</label></li>
+      <li><label><input type="checkbox"> I waited 1–2 minutes and did a hard refresh (Cmd + Shift + R or Ctrl + F5).</label></li>
+    </ul>
+    <p class="tool-center"><a href="planner.html">See all of this at work in my Study Planner →</a></p>
+  </section>
+
+</main>
+
+<footer>Built by Maverick Hallett &middot; BMIS 235</footer>
+
+<!-- AI piece (made with Claude): the playground, task checks and quiz -->
+<script src="learn.js"></script>
+</body>
+</html>
