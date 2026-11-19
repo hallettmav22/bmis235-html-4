@@ -1,87 +1,85 @@
 /* =====================================================================
-   styles.css  ·  GOOMBA GRAILS
+   styles.css  ·  NOT THE NIGHT BEFORE
+   Author: Maverick Hallett (mhallett) · BMIS 235 HTML-4
    ---------------------------------------------------------------------
-   This one file is your brand guide. Every page that links to it gets
-   the same font, the same colors and the same spacing.
-   Change a color here once, and every page changes.
-
-   Use the same font and colors you picked for your Excel menu images,
-   so the menu and the pages look like one brand.
+   The brand for every page: one font, navy and gold, the same menu
+   and footer. Every page links to this file in its <head>, so a change
+   here changes the whole site.
    ===================================================================== */
 
 body {
     font-family: Georgia, "Times New Roman", serif;
-    background-color: #F4EDE1;
-    color: #2F4F3E;
+    background-color: #F5F3EE;
+    color: #1F2A44;
     margin: 0;
     padding: 0 20px 40px 20px;
 }
 
 /* the menu at the top of every page */
 nav {
-    background-color: #2F4F3E;
+    background-color: #1F2A44;
+    margin: 0 -20px;
     padding: 14px;
     text-align: center;
 }
 
-/* every image inside the menu is forced to the same height.
-   If your images still look different sizes, their WIDTHS are
-   different: go back to Excel and make every cell the same size. */
-nav img {
-    height: 50px;
-    margin: 4px;
-    vertical-align: middle;
+nav a {
+    display: inline-block;
+    color: #F5F3EE;
+    font-weight: bold;
+    font-size: 17px;
+    text-decoration: none;
+    padding: 8px 16px;
+    margin: 2px 4px;
+    border: 2px solid #C99A2E;
+    border-radius: 8px;
 }
 
-/* no underline or border around the image links */
-nav a {
-    text-decoration: none;
+/* the page you're on, and hovering, both turn gold */
+nav a:hover, nav a.here {
+    background-color: #C99A2E;
+    color: #1F2A44;
+}
+
+.site-name {
+    color: #C99A2E;
+    font-weight: bold;
+    margin-right: 12px;
+    letter-spacing: 1px;
 }
 
 h1 {
-    color: #C8553D;
+    color: #1F2A44;
     text-align: center;
     font-size: 40px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #1F2A44;
+    text-align: center;
+    font-size: 26px;
+    border-bottom: 3px solid #C99A2E;
+    max-width: 600px;
+    margin: 30px auto 10px auto;
+    padding-bottom: 6px;
 }
 
 p {
-    max-width: 600px;
-    margin: 20px auto;
+    max-width: 640px;
+    margin: 16px auto;
     font-size: 18px;
     line-height: 1.5;
+}
+
+p a {
+    color: #A97F22;
+    font-weight: bold;
 }
 
 footer {
     text-align: center;
     font-size: 14px;
-    color: #777777;
+    color: #6B7280;
     margin-top: 40px;
-}
-
-/* NEW STYLE 1: links match the brand, with a hover effect */
-p a {
-    color: #C8553D;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-p a:hover {
-    color: #2F4F3E;
-    text-decoration: underline;
-}
-
-/* NEW STYLE 2: section headings with a rust underline */
-h2 {
-    color: #2F4F3E;
-    text-align: center;
-    font-size: 26px;
-    border-bottom: 3px solid #C8553D;
-    max-width: 600px;
-    margin: 40px auto 10px auto;
-    padding-bottom: 6px;
-}
-
-/* NEW STYLE 3: rounded corners on the menu buttons */
-nav img {
-    border-radius: 8px;
 }
