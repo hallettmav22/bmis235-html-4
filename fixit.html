@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<!--
+  Author: Maverick Hallett
+  GU username: mhallett
+  Course: BMIS 235 - HTML-4 (Path 3: Full build)
+  Page: Fix It Lab, a learning tool for file paths (why won't my image show?)
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Maverick Hallett">
+<title>Goomba Grails | Fix It Lab</title>
+
+<!-- the site's brand stylesheet, same as every page -->
+<link rel="stylesheet" href="styles.css">
+<!-- extra styles used only by the Fix It Lab -->
+<link rel="stylesheet" href="lab.css">
+</head>
+<body>
+
+<nav>
+    <a href="index.html"><img src="img/home.png" alt="Home"></a>
+    <a href="grails.html"><img src="img/grails.png" alt="Grails"></a>
+    <a href="thehunt.html"><img src="img/thehunt.png" alt="The Hunt"></a>
+    <a href="shop.html"><img src="img/shop.png" alt="Shop"></a>
+    <a href="fixit.html"><img src="img/fixit.png" alt="Fix It Lab"></a>
+</nav>
+
+<h1>Fix It Lab</h1>
+<p class="lab-intro">The shop's photos are broken and it's your job to find out why.
+This lab teaches <strong>file paths</strong>: how a page tells the browser where
+an image or stylesheet lives, and why one wrong letter breaks it.
+Go in order: learn it, watch it, get quizzed, then fix real broken code.</p>
+
+<main class="lab">
+
+  <!-- step buttons: one section shows at a time -->
+  <div class="lab-steps" role="tablist">
+    <button class="lab-step" data-go="learn" role="tab">1 · Learn</button>
+    <button class="lab-step" data-go="see" role="tab">2 · See it</button>
+    <button class="lab-step" data-go="quiz" role="tab">3 · Quiz</button>
+    <button class="lab-step" data-go="fix" role="tab">4 · Fix it</button>
+    <button class="lab-step" data-go="watch" role="tab">5 · Watch out</button>
+  </div>
+
+  <!-- ============ 1. LEARN ============ -->
+  <section class="lab-panel" id="learn">
+    <h2>A path is directions to a file</h2>
+
+    <div class="lab-card">
+      <h3>The browser starts where the page is</h3>
+      <p>When a page says <code>&lt;img src="img/home.png"&gt;</code>, the browser
+      starts in the <strong>same folder as that page</strong> and follows the
+      directions one piece at a time: open the <code>img</code> folder, then
+      grab the file called <code>home.png</code>.</p>
+      <pre class="lab-tree">site/
+├── index.html      ← the page starts here
+├── styles.css
+└── img/
+    └── home.png    ← "img/home.png" ends here</pre>
+    </div>
+
+    <div class="lab-card">
+      <h3>The three pieces you'll use</h3>
+      <ul class="lab-list">
+        <li><code>home.png</code> means the file is in the <strong>same folder</strong> as the page.</li>
+        <li><code>img/home.png</code> means <strong>go into</strong> the img folder first.</li>
+        <li><code>../img/home.png</code> means <strong>go up one folder</strong> first. You need this when the page itself is inside a folder.</li>
+      </ul>
+    </div>
+
+    <div class="lab-card">
+      <h3>It has to match letter for letter</h3>
+      <p>On GitHub Pages, <code>Photo.JPG</code> and <code>photo.jpg</code> are
+      two different files. Capital letters, the folder name and the extension
+      (<code>.png</code>, <code>.jpg</code>) all have to match exactly. Macs and
+      Windows PCs usually ignore capitals, so a path can work on your laptop
+      and still break on the live site.</p>
+    </div>
+
+    <div class="lab-card">
+      <h3>src or href?</h3>
+      <ul class="lab-list">
+        <li><code>&lt;img src="…"&gt;</code>: an image uses <strong>src</strong>.</li>
+        <li><code>&lt;a href="…"&gt;</code>: a link uses <strong>href</strong>.</li>
+        <li><code>&lt;link rel="stylesheet" href="…"&gt;</code>: the stylesheet also uses <strong>href</strong>.</li>
+      </ul>
+      <p>The rules for writing the path are the same for all three.</p>
+    </div>
+
+    <div class="lab-card">
+      <h3>Clue: the alt text shows up</h3>
+      <p>When an image can't be found, the browser shows a broken-image icon
+      and your <code>alt</code> text instead. If you see your alt text, the
+      tag worked but the <strong>path</strong> is wrong.</p>
+    </div>
+
+    <details class="lab-listen">
+      <summary>Rather listen? Get a NotebookLM prompt</summary>
+      <label for="listen-topic">Pick a topic:</label>
+      <select id="listen-topic">
+        <option value="relative paths like img/home.png">Relative paths (img/home.png)</option>
+        <option value="going up a folder with ../">Going up a folder with ../</option>
+        <option value="why file names are case sensitive on GitHub Pages">Capital letters and file names</option>
+        <option value="linking one stylesheet to every page with the link tag">Linking the stylesheet</option>
+      </select>
+      <textarea id="listen-out" rows="6" readonly></textarea>
+      <button type="button" class="lab-btn" id="listen-copy">Copy prompt</button>
+      <span class="lab-small" id="listen-msg"></span>
+    </details>
+
+    <button type="button" class="lab-btn lab-next" data-go="see">Next: See it →</button>
+  </section>
+
+  <!-- ============ 2. SEE IT ============ -->
+  <section class="lab-panel" id="see" hidden>
+    <h2>Watch the browser follow a path</h2>
+    <p>Pick the page the path is written on, type a path, and press
+    <strong>Trace</strong>. The browser walks the folders one step at a time.</p>
+
+    <div class="trace-controls">
+      <label for="trace-page">Code is on:</label>
+      <select id="trace-page">
+        <option value="">index.html (top folder)</option>
+        <option value="drops">drops/winter.html (inside a folder)</option>
+      </select>
+      <label for="trace-path">Path:</label>
+      <input id="trace-path" type="text" value="img/carhartt-jacket.png" autocomplete="off" spellcheck="false">
+      <button type="button" class="lab-btn" id="trace-go">Trace</button>
+    </div>
+    <div class="trace-try">Try:
+      <button type="button" class="lab-chip" data-try="img/Carhartt-Jacket.png">img/Carhartt-Jacket.png</button>
+      <button type="button" class="lab-chip" data-try="carhartt-jacket.png">carhartt-jacket.png</button>
+      <button type="button" class="lab-chip" data-try="../img/carhartt-jacket.png" data-page="drops">../img/… from drops/</button>
+    </div>
+
+    <div class="trace-wrap">
+      <div class="trace-tree" id="trace-tree" aria-label="Site folders"></div>
+      <ol class="trace-log" id="trace-log" aria-live="polite"></ol>
+    </div>
+
+    <button type="button" class="lab-btn lab-next" data-go="quiz">Next: Quiz →</button>
+  </section>
+
+  <!-- ============ 3. QUIZ ============ -->
+  <section class="lab-panel" id="quiz" hidden>
+    <h2>Quick check, one at a time</h2>
+    <div class="quiz-box" id="quiz-box"></div>
+    <button type="button" class="lab-btn lab-next" data-go="fix">Next: Fix it →</button>
+  </section>
+
+  <!-- ============ 4. FIX IT ============ -->
+  <section class="lab-panel" id="fix" hidden>
+    <h2>Fix the shop</h2>
+    <div class="fix-progress" id="fix-progress"></div>
+    <div class="fix-box">
+      <h3 id="fix-title"></h3>
+      <p id="fix-story"></p>
+      <div class="fix-grid">
+        <div>
+          <div class="lab-label">The repo</div>
+          <pre class="lab-tree" id="fix-tree"></pre>
+        </div>
+        <div>
+          <div class="lab-label">The code on <span id="fix-page"></span> (edit it)</div>
+          <textarea id="fix-code" rows="3" spellcheck="false" autocomplete="off"></textarea>
+          <div class="fix-buttons">
+            <button type="button" class="lab-btn" id="fix-run">Run it</button>
+            <button type="button" class="lab-btn lab-ghost" id="fix-hint">Hint</button>
+            <button type="button" class="lab-btn lab-ghost" id="fix-reset">Reset code</button>
+          </div>
+          <div class="lab-label">What the browser asked for</div>
+          <div class="fix-console" id="fix-console">Press Run it.</div>
+        </div>
+      </div>
+      <div class="lab-label">Live preview</div>
+      <div class="fix-preview" id="fix-preview"></div>
+      <div class="fix-feedback" id="fix-feedback" aria-live="polite"></div>
+      <button type="button" class="lab-btn" id="fix-next" hidden>Next round →</button>
+    </div>
+  </section>
+
+  <!-- ============ 5. WATCH OUT ============ -->
+  <section class="lab-panel" id="watch" hidden>
+    <h2>Watch out: check these before you commit</h2>
+    <p>Run through this list any time an image, link or stylesheet won't load.</p>
+    <ul class="watch-list" id="watch-list">
+      <li><label><input type="checkbox"> The file name matches <strong>letter for letter</strong>, capitals included.</label></li>
+      <li><label><input type="checkbox"> The extension matches: <code>.png</code> isn't <code>.jpg</code> or <code>.PNG</code>, and there's no <code>.png.png</code>.</label></li>
+      <li><label><input type="checkbox"> The <strong>folder</strong> is in the path: <code>img/home.png</code>, not just <code>home.png</code>.</label></li>
+      <li><label><input type="checkbox"> The folder name is right: <code>img</code> isn't <code>images</code>.</label></li>
+      <li><label><input type="checkbox"> If the page is inside a folder, the path starts with <code>../</code>.</label></li>
+      <li><label><input type="checkbox"> File names are lowercase with dashes and no spaces: <code>surf-tee.png</code>.</label></li>
+      <li><label><input type="checkbox"> Images use <code>src</code>. Links and the stylesheet use <code>href</code>.</label></li>
+      <li><label><input type="checkbox"> I waited 1–2 minutes and did a hard refresh (Cmd + Shift + R or Ctrl + F5).</label></li>
+    </ul>
+    <div class="lab-card">
+      <h3>Still stuck? Say it in one sentence</h3>
+      <p>"I expected <em>___</em>, but I see <em>___</em>." Then find the one line it's on,
+      change one thing, commit and check.</p>
+    </div>
+    <button type="button" class="lab-btn" id="lab-restart">Start the lab over</button>
+  </section>
+
+</main>
+
+<footer>Built by Maverick Hallett &middot; BMIS 235</footer>
+
+<!-- AI piece (made with Claude): all the interactive parts of the lab -->
+<script src="lab.js"></script>
+</body>
+</html>
