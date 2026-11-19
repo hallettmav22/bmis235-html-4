@@ -17,11 +17,10 @@
      days: 0 = Sunday, 1 = Monday ... 6 = Saturday */
   var DEFAULT_CLASSES = [
     { id: 'acct', name: 'ACCT 261', full: 'Principles of Accounting II', meets: [{ days: [1, 3, 5], start: '11:00', end: '11:50' }] },
-    { id: 'cath', name: 'Catholicism', full: 'Catholicism', meets: [{ days: [1, 3, 5], start: '13:10', end: '14:00' }] },
     { id: 'bmis', name: 'BMIS 235', full: 'Management Information Systems', meets: [{ days: [2, 4], start: '12:15', end: '13:30' }] },
     { id: 'phil', name: 'Philosophy', full: 'Philosophy of Human Nature', meets: [{ days: [2, 4], start: '13:45', end: '15:00' }] },
     { id: 'stats', name: 'Stats', full: 'Business Statistics', meets: [{ days: [2, 4], start: '17:00', end: '18:15' }] },
-    { id: 'musc', name: 'MUSC 250', full: 'Popular Music in the US', meets: [] },
+    { id: 'musc', name: 'MUSC 250', full: 'Popular Music in the US', meets: [{ days: [1, 3, 5], start: '13:10', end: '14:00' }] },
     { id: 'gscg', name: 'GSCG', full: 'Gonzaga Sport Consulting Group', meets: [] }
   ];
 
@@ -39,7 +38,7 @@
   var PX_PER_HOUR = 40;
 
   /* ---------- saved state ---------- */
-  var KEY = 'nnbPlanner-v1';
+  var KEY = 'nnbPlanner-v2';
   var state;
   function fresh() {
     return {

@@ -10,11 +10,10 @@
    Every block, dot and tag for a class uses these. Change one line here
    and that class changes color everywhere on the planner. */
 .c-acct  { background: #D9822B; }
-.c-cath  { background: #6A4C93; }
 .c-bmis  { background: #3E7CB1; }
 .c-phil  { background: #C2185B; }
 .c-stats { background: #4E9A3A; }
-.c-musc  { background: #B8860B; }
+.c-musc  { background: #6A4C93; }
 .c-gscg  { background: #0F766E; }
 
 /* ---------- shared layout ---------- */

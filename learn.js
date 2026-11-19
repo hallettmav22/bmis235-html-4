@@ -19,7 +19,7 @@
     });
   }
 
-  var KEY = 'nnbLearnCSS-v1';
+  var KEY = 'nnbLearnCSS-v2';
   var saved = {};
   try { saved = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) {}
   function save(obj) {
@@ -95,7 +95,7 @@
     '  color: white;\n' +
     '}\n\n' +
     '.acct  { background: #D9822B; }\n' +
-    '.cath  { background: #6A4C93; }\n' +
+    '.musc  { background: #6A4C93; }\n' +
     '.bmis  { background: #3E7CB1; }\n' +
     '.phil  { background: #C2185B; }\n' +
     '.stats { background: #4E9A3A; }\n\n' +
@@ -103,9 +103,9 @@
     '.phil  { background: #888888; }\n';
 
   var PAGES = [
-    { file: 'monday.html', title: 'Monday', blocks: [['acct', 'ACCT 261', '11:00'], ['cath', 'Catholicism', '1:10']] },
+    { file: 'monday.html', title: 'Monday', blocks: [['acct', 'ACCT 261', '11:00'], ['musc', 'MUSC 250', '1:10']] },
     { file: 'tuesday.html', title: 'Tuesday', blocks: [['bmis', 'BMIS 235', '12:15'], ['phil', 'Philosophy', '1:45'], ['stats', 'Stats', '5:00']] },
-    { file: 'wednesday.html', title: 'Wednesday', blocks: [['acct', 'ACCT 261', '11:00'], ['cath', 'Catholicism', '1:10']] },
+    { file: 'wednesday.html', title: 'Wednesday', blocks: [['acct', 'ACCT 261', '11:00'], ['musc', 'MUSC 250', '1:10']] },
     { file: 'thursday.html', title: 'Thursday', blocks: [['bmis', 'BMIS 235', '12:15'], ['phil', 'Philosophy', '1:45'], ['stats', 'Stats', '5:00']] }
   ];
   var GOOD_LINK = '<link rel="stylesheet" href="planner.css">';
